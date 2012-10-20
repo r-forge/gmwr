@@ -1,0 +1,170 @@
+<html><head><title>Compute table margin or table slice</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="Rchm.css">
+</head>
+<body>
+
+<table width="100%"><tr><td>table-operations(gRbase)</td><td align="right">R Documentation</td></tr></table><object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+<param name="keyword" value="R:   tableSlice">
+<param name="keyword" value="R:   tableSlicePrim">
+<param name="keyword" value="R:   tableMargin">
+<param name="keyword" value="R:   tableOp">
+<param name="keyword" value="R:   tablePerm">
+<param name="keyword" value=" Compute table margin or table slice">
+</object>
+
+
+<h2>Compute table margin or table slice</h2>
+
+
+<h3>Description</h3>
+
+<p>
+For a contingency table in array form, compute the sum of table
+entries for a given index (i.e. a marginal table) or find the slice of
+the table defined by specific margins being at a specific level.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+tableOp(t1, t2, op = "*") 
+tableMargin(x, margin, keep.class=FALSE)
+tableSlice(x, margin, level, impose)
+tablePerm(a, perm, resize = TRUE, keep.class=FALSE) 
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x, t1, t2, a</code></td>
+<td>
+An array</td></tr>
+<tr valign="top"><td><code>margin</code></td>
+<td>
+An index, either numerical  or character</td></tr>
+<tr valign="top"><td><code>keep.class</code></td>
+<td>
+If TRUE the result will be forced to have the same
+class as the input; otherwise the result will be an array.</td></tr>
+<tr valign="top"><td><code>level</code></td>
+<td>
+A value, either numerical or character</td></tr>
+<tr valign="top"><td><code>impose</code></td>
+<td>
+Possible value used to fill up a slice to give it full
+dimension</td></tr>
+<tr valign="top"><td><code>op</code></td>
+<td>
+Either "*" or "/"</td></tr>
+<tr valign="top"><td><code>perm</code></td>
+<td>
+The subscript permutation vector, which must be a
+permutation of the integers 1:n, where n is the number of dimensions of
+a OR a permutation of the dimension names of a. The default is to
+reverse the order of the dimensions. A permutation of the dimensions of
+a.</td></tr>
+<tr valign="top"><td><code>resize</code></td>
+<td>
+A flag indicating whether the vector should be resized as
+well as having its elements reordered. </td></tr>
+</table>
+
+<h3>Details</h3>
+
+<p>
+<code>tableMargin</code>: tableMargin is analogous to margin.table except that margin can be given
+both as array indices or as variable names
+</p>
+<p>
+<code>tableSlice</code>: If the table x has dimensions Z,U,V where V has levels 1 and 2
+then tableSlice can extract the
+slice of x (in this case a 2-way table) defined by e.g. U=2. Setting
+impose=1000 implies that a 3-way table is returned with the U=2 slice
+in the right place and the U=1-slice consisting of 1000 in each cell.
+</p>
+<p>
+<code>tableOp</code>: If t1 has dimnames A and B and t2 has dimnames B and C then
+tableOp(t1,t2) will return a table (an array) with dimnames A, B and C
+containing the product.
+</p>
+<p>
+<code>tablePerm</code>: A wrapper for aperm, but tablePerm accepts dimnames in
+addition to indices. 
+</p>
+<p>
+See examples below.
+</p>
+
+
+<h3>Value</h3>
+
+<p>
+An array.</p>
+
+<h3>Author(s)</h3>
+
+<p>
+Søren Højsgaard
+</p>
+
+
+<h3>See Also</h3>
+
+<p>
+<a href="onclick="findlink('base', 'margin.table.html')" style="text-decoration: underline; color: blue; cursor: hand"">margin.table</a>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+
+data(HairEyeColor)
+
+tableMargin(HairEyeColor, "Hair")
+tableMargin(HairEyeColor, 1)
+tableMargin(HairEyeColor, c("Hair","Eye"))
+tableMargin(HairEyeColor, c(1,2))
+
+tableSlice(HairEyeColor, "Sex","Male")
+tableSlice(HairEyeColor, 3,1)
+tableSlice(HairEyeColor, "Sex","Male", impose=1000)
+tableSlice(HairEyeColor, 3,1, impose=1000)
+
+t1 &lt;- array(1:4, dim=c(2,2), dimnames=list(gender=c('male','female'),answer=c('yes','no')))
+t2 &lt;- array(1:4+10, dim=c(2,2), dimnames=list(answer=c('yes','no'),category=c(1,2)))
+
+tableOp(t1,t2, "*")
+tableOp(t1,t2, "/")
+
+data(reinis)
+
+t1 &lt;- tableMargin(reinis, c(6,5,2,1))
+t2 &lt;- tableMargin(reinis, c(6,5,3,4))
+
+tt1 &lt;- tableOp(t1,t2)
+
+t1 &lt;- tableMargin(reinis, c(6,5,2,4,1))
+t2 &lt;- tableMargin(reinis, c(6,5,4))
+
+tt1 &lt;- tableOp2(t1,t2)
+
+</pre>
+
+<script Language="JScript">
+function findlink(pkg, fn) {
+var Y, link;
+Y = location.href.lastIndexOf("\\") + 1;
+link = location.href.substring(0, Y);
+link = link + "../../" + pkg + "/chtml/" + pkg + ".chm::/" + fn;
+location.href = link;
+}
+</script>
+
+
+<hr><div align="center">[Package <em>gRbase</em> version 1.0.4 <a href="00Index.html">Index]</a></div>
+
+</body></html>
