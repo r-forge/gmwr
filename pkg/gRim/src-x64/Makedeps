@@ -1,0 +1,50 @@
+ggmfit.o: ggmfit.c c:/programs/r/current/include/Rdefines.h \
+  c:/programs/r/current/include/R_ext/Memory.h \
+  c:/programs/r/current/include/R_ext/RS.h \
+  c:/programs/r/current/include/Rconfig.h \
+  c:/programs/r/current/include/R_ext/Error.h \
+  c:/programs/r/current/include/Rinternals.h \
+  c:/programs/r/current/include/R_ext/Arith.h \
+  c:/programs/r/current/include/R_ext/libextern.h \
+  c:/programs/r/current/include/R_ext/Boolean.h \
+  c:/programs/r/current/include/R_ext/Complex.h \
+  c:/programs/r/current/include/R_ext/PrtUtil.h \
+  c:/programs/r/current/include/R_ext/Print.h \
+  c:/programs/r/current/include/R_ext/Utils.h \
+  c:/programs/r/current/include/R_ext/Lapack.h \
+  c:/programs/r/current/include/R_ext/BLAS.h \
+  c:/programs/r/current/include/R_ext/Applic.h shd_print.h shd_utils.h
+shd_print.o: shd_print.c c:/programs/r/current/include/Rdefines.h \
+  c:/programs/r/current/include/R_ext/Memory.h \
+  c:/programs/r/current/include/R_ext/RS.h \
+  c:/programs/r/current/include/Rconfig.h \
+  c:/programs/r/current/include/R_ext/Error.h \
+  c:/programs/r/current/include/Rinternals.h \
+  c:/programs/r/current/include/R_ext/Arith.h \
+  c:/programs/r/current/include/R_ext/libextern.h \
+  c:/programs/r/current/include/R_ext/Boolean.h \
+  c:/programs/r/current/include/R_ext/Complex.h \
+  c:/programs/r/current/include/R_ext/PrtUtil.h \
+  c:/programs/r/current/include/R_ext/Print.h \
+  c:/programs/r/current/include/R_ext/Utils.h \
+  c:/programs/r/current/include/R.h \
+  c:/programs/r/current/include/R_ext/Constants.h \
+  c:/programs/r/current/include/R_ext/Random.h
+shd_utils.o: shd_utils.c c:/programs/r/current/include/Rdefines.h \
+  c:/programs/r/current/include/R_ext/Memory.h \
+  c:/programs/r/current/include/R_ext/RS.h \
+  c:/programs/r/current/include/Rconfig.h \
+  c:/programs/r/current/include/R_ext/Error.h \
+  c:/programs/r/current/include/Rinternals.h \
+  c:/programs/r/current/include/R_ext/Arith.h \
+  c:/programs/r/current/include/R_ext/libextern.h \
+  c:/programs/r/current/include/R_ext/Boolean.h \
+  c:/programs/r/current/include/R_ext/Complex.h \
+  c:/programs/r/current/include/R_ext/PrtUtil.h \
+  c:/programs/r/current/include/R_ext/Print.h \
+  c:/programs/r/current/include/R_ext/Utils.h \
+  c:/programs/r/current/include/R.h \
+  c:/programs/r/current/include/R_ext/Constants.h \
+  c:/programs/r/current/include/R_ext/Random.h \
+  c:/programs/r/current/include/R_ext/Lapack.h \
+  c:/programs/r/current/include/R_ext/BLAS.h shd_print.h
