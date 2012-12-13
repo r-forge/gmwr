@@ -15,7 +15,13 @@ triangulate.igraph <- function(object, method="mcwh",
 triangulate.matrix <- function(object, method="mcwh",
                            nLevels=rep(2,ncol(object)), result="matrix", ...){
   triangulateMAT(object,
-                 method=method, nLevels=nLevels, result="matrix", ...)
+                 method=method, nLevels=nLevels, result=result, ...)
+}
+
+triangulate.Matrix <- function(object, method="mcwh",
+                           nLevels=rep(2,ncol(object)), result="Matrix", ...){
+  triangulateMAT(object,
+                 method=method, nLevels=nLevels, result=result, ...)
 }
 
 
@@ -95,9 +101,6 @@ triangulateMAT_spR<- function(amat, vn=colnames(amat), nLevels=rep(2, length(vn)
   dimnames(amat) <- list(vn,vn)
   amat  
 }
-
-
-
 
 ## FIXME: Fra kommentarer ovenfor ser det ud som om dette ikke virker
 triangulate_stR <- function(object, vn=nodes(object), nLevels=rep(2, length(vn))){

@@ -11,7 +11,6 @@
 \alias{sp_setXtf1}
 \alias{sp_setXM1}
 \alias{sp_moralize}
-\alias{sp_topoSort}
 \alias{sp_fromto}
 \alias{st_fromto}
 
@@ -29,11 +28,11 @@
 \alias{lapplyI2V}
 \alias{lapplyMatch}
 
+\alias{sp_topoSort} %% FIXME: Delete when new version of gRain is on CRAN. 
 
 %% Needs .Rd
 
 \alias{mcsMATR}
-\alias{topoSort}
 \alias{triang2R}
 \alias{vparlist2tf}
 \alias{coerceGraph}
@@ -42,8 +41,6 @@
 \alias{coerceGraph.matrix}
 \alias{isGSD_glist}
 \alias{properties_glist}
-\alias{isAcyclicMAT}
-\alias{isUndirectedMAT}
 
 %% Array operations in C.
 \alias{aperm2}
@@ -56,7 +53,6 @@
 \alias{nextCellSlice}
 \alias{permuteCellEntries}
 
-
 %%%
 %%% Functions comming from the gRain package
 %%%
@@ -67,7 +63,6 @@
 \alias{triangPG}
 \alias{triangR}
 \alias{triangRMAT}
-
 \alias{igraph-class}
 
 %%%

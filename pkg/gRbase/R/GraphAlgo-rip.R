@@ -32,11 +32,12 @@ rip.matrix <- function(object, root=NULL, nLevels=NULL){
   ripMAT(object, root=root, nLevels=nLevels)
 }
 
+## FIXME: rip.Matrix 
+rip.Matrix <- function(object, root=NULL, nLevels=NULL){
+  ripMAT(object, root=root, nLevels=nLevels)
+ ## ripMAT(as(object,"matrix"), root=root, nLevels=nLevels)
+}
 
-## rip <- function(object, root=NULL, nLevels=NULL){
-##   amat <- as.adjMAT(object)
-##   ripMAT(amat, root=root, nLevels=nLevels)
-## }
 
 ripMAT <- function(amat, root=NULL, nLevels=NULL){
   
