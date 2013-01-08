@@ -1,4 +1,0 @@
-useDynLib(gRbase)
-exportPattern("^[[:alpha:]]+")
-importMethodsFrom(Matrix, t, isSymmetric)
-                                        #exportPattern("^[^\\.]")
