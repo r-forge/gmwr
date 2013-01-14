@@ -13,7 +13,7 @@ Description: gRaphical Interaction Models:
  Mixed interaction models
 License: GPL (>= 2)
 URL: http://people.math.aau.dk/~sorenh/software/gR/
-Depends: R (>= 2.15.2),methods,gRbase(>= 1.6-3),gRain,doBy,Rcpp(>= 0.9.13),RcppArmadillo (>= 0.3.2.4)
+Depends: R (>= 2.15.2),methods,gRbase(>= 1.6-5),gRain,doBy,Rcpp(>= 0.9.13),RcppArmadillo (>= 0.3.2.4)
 Encoding: latin1
 ByteCompile: yes
 LinkingTo: Rcpp,RcppArmadillo
