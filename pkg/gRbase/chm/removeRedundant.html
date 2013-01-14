@@ -1,0 +1,106 @@
+<html><head><title>Set operations</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="Rchm.css">
+</head>
+<body>
+
+<table width="100%"><tr><td>Setoperations(gRbase)</td><td align="right">R Documentation</td></tr></table><object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+<param name="keyword" value="R:   is.insetlist">
+<param name="keyword" value="R:   isin">
+<param name="keyword" value="R:   is.subsetof">
+<param name="keyword" value="R:   subsetof">
+<param name="keyword" value="R:   removeRedundant">
+<param name="keyword" value=" Set operations">
+</object>
+
+
+<h2>Set operations</h2>
+
+
+<h3>Description</h3>
+
+<p>
+Miscellaneous set operations.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+is.subsetof(x, set)
+is.insetlist(x, setlist, index=FALSE)
+removeRedundant(setlist, maximal = TRUE, index = FALSE)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x, set</code></td>
+<td>
+Vectors representing sets</td></tr>
+<tr valign="top"><td><code>setlist</code></td>
+<td>
+List of vectors (representing a set of subsets)</td></tr>
+<tr valign="top"><td><code>maximal</code></td>
+<td>
+Logical; see section 'Details' for a description.</td></tr>
+<tr valign="top"><td><code>index</code></td>
+<td>
+Logical; should indices (in setlist) be returned or a set
+of subsets.</td></tr>
+</table>
+
+<h3>Details</h3>
+
+<p>
+'setlist' is a list of vectors representing a set of subsets;
+i.e. V1,...VQ where Vk is a subset of some base set V. 
+</p>
+<p>
+<code>is.insetlist</code>: Checks if the set x is in one of the Vk's.
+</p>
+<p>
+<code>removeRedundant</code>: Returns those Vk which are not contained in other
+subsets; i.e. gives the maximal sets. If maximal is FALSE then returns
+the minimal sets; i.e. Vk is returned if Vk is contained in one of the
+other sets Vl and there are no set Vn contained in Vk.
+</p>
+<p>
+Notice that the comparisons are made by turning the elements into
+characters and then comparing these. Hence 1 is identical to "1".
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>
+Søren Højsgaard, sorenh@agrsci.dk
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+
+is.subsetof(c(1,2),c(1,2,3))
+is.subsetof(c(1,2,3), c(1,2))
+
+l &lt;- list(c(1,2),c(1,2,3),c(2,4),c(5,6), 5)
+
+#subsetofList(c(1,2), l)
+#subsetofList(c(1,2,3,4), l)
+
+removeRedundant(l)
+removeRedundant(l, maximal=FALSE)
+
+is.insetlist (c(2,4), l)
+is.insetlist (c(2,8), l)
+
+</pre>
+
+
+
+<hr><div align="center">[Package <em>gRbase</em> version 1.0.4 <a href="00Index.html">Index]</a></div>
+
+</body></html>

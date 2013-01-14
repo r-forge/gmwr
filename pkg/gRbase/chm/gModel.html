@@ -1,0 +1,95 @@
+<html><head><title>Class "gModel" - graphical models</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="Rchm.css">
+</head>
+<body>
+
+<table width="100%"><tr><td>gModel(gRbase)</td><td align="right">R Documentation</td></tr></table><object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+<param name="keyword" value="R:   gModel">
+<param name="keyword" value="R:   gModel-class">
+<param name="keyword" value="R:   formula">
+<param name="keyword" value="R:   formula.gModel">
+<param name="keyword" value="R:   formula<-">
+<param name="keyword" value="R:   formula<-.gModel">
+<param name="keyword" value="R:   gmData">
+<param name="keyword" value="R:   gmData<-">
+<param name="keyword" value="R:   gmData.gModel">
+<param name="keyword" value="R:   gmData<-.gModel">
+<param name="keyword" value="R:   print.gModel">
+<param name="keyword" value=" Class 'gModel' - graphical models">
+</object>
+
+
+<h2>Class 'gModel' - graphical models</h2>
+
+
+<h3>Description</h3>
+
+<p>
+The general class <code>gModel</code> contains a formula object and a
+<code>gmData</code> object. Implementations of different
+specific graphical model classes can inherit from this class and
+provide methods for parsing the formula. This is illustrated in the
+implementation of a class for hierarchical log&ndash;linear models,
+<code><a href="hllm.html">hllm</a></code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+gModel(formula, gmData)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>formula</code></td>
+<td>
+an object of class <code><a href="gModel.html">formula</a></code>.</td></tr>
+<tr valign="top"><td><code>gmData</code></td>
+<td>
+an object of class <code><a href="gModel.html">gmData</a></code>.</td></tr>
+</table>
+
+<h3>Value</h3>
+
+<p>
+<code>gModel</code> creates an object of class <code>gModel</code> with the two
+components <code>formula</code> and <code>gmData</code>. These components can be
+retrieved or replaced using the accessor functions of the same
+names. Also, a <code>gModel</code> object may be manipulated using the
+<code>dynamicGraph</code> interface.</p>
+
+<h3>Author(s)</h3>
+
+<p>
+Søren Højsgaard, <a href="mailto:sorenh@agrsci.dk">sorenh@agrsci.dk</a>, <br> Claus Dethlefsen, <a href="mailto:cld@rn.dk">cld@rn.dk</a>
+</p>
+
+
+<h3>See Also</h3>
+
+<p>
+<code><a href="gModel.html">gmData</a></code>, <code><a href="gRfit.html">gRfit</a></code>, <code><a href="hllm.html">hllm</a></code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+data(rats)
+rats &lt;- as.gmData(rats)
+
+m1 &lt;- gModel(~.^. , rats)
+m1.form &lt;- formula(m1)
+m1.data &lt;- gmData(m1)
+observations(gmData(m1)) &lt;- observations(rats)[1:10,]
+</pre>
+
+
+
+<hr><div align="center">[Package <em>gRbase</em> version 0.6.9 <a href="00Index.html">Index]</a></div>
+
+</body></html>

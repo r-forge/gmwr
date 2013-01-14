@@ -1,0 +1,138 @@
+<html><head><title>Representation of and operations on multidimensional tables</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="Rchm.css">
+</head>
+<body>
+
+<table width="100%"><tr><td>ptable(gRbase)</td><td align="right">R Documentation</td></tr></table><object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+<param name="keyword" value="R:   ptable">
+<param name="keyword" value="R:   as.ptable">
+<param name="keyword" value="R:   varNames.ptable">
+<param name="keyword" value="R:   nLevels.ptable">
+<param name="keyword" value="R:   valueLabels.ptable">
+<param name="keyword" value="R:   varNames.array">
+<param name="keyword" value="R:   nLevels.array">
+<param name="keyword" value="R:   valueLabels.array">
+<param name="keyword" value="R:   print.ptable">
+<param name="keyword" value="R:   tableMarginPrim">
+<param name="keyword" value=" Representation of and operations on multidimensional tables">
+</object>
+
+
+<h2>Representation of and operations on multidimensional tables</h2>
+
+
+<h3>Description</h3>
+
+<p>
+General representation of multidimensional 
+tables (by <code>ptable</code> objects).
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+ptable(varNames, levels, values = 1, normalize = c("none", "first", "all"), smooth = 0)
+as.ptable  &lt;- function(values, normalize=c("none","first","all"), smooth=0)
+tableMarginPrim(t1, margin, normalize=FALSE)
+
+## S3 method for class 'ptable':
+varNames(x)
+## S3 method for class 'ptable':
+nLevels(x)
+## S3 method for class 'ptable':
+valueLabels(x)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>varNames</code></td>
+<td>
+Names of variables defining table</td></tr>
+<tr valign="top"><td><code>levels</code></td>
+<td>
+Either vector with number of levels of the factors in
+varNames or list vith specification of the levels of the factors in
+varNames. See 'examples' below.</td></tr>
+<tr valign="top"><td><code>values</code></td>
+<td>
+Table values</td></tr>
+<tr valign="top"><td><code>x</code></td>
+<td>
+Objects of class "ptable"</td></tr>
+<tr valign="top"><td><code>t1</code></td>
+<td>
+Objects of class "ptable"</td></tr>
+<tr valign="top"><td><code>margin</code></td>
+<td>
+Set of nodes to marginalize onto</td></tr>
+<tr valign="top"><td><code>normalize</code></td>
+<td>
+Should result be normalized, see 'Details' below.</td></tr>
+<tr valign="top"><td><code>smooth</code></td>
+<td>
+Should values be smoothed, see 'Details' below.</td></tr>
+</table>
+
+<h3>Details</h3>
+
+<p>
+A ptable object represents a table defined by a set of variables and
+their levels, together with the values of the table. E.g. f(a,b,c) can
+be a table with a,b,c representing levels of binary variable
+</p>
+<p>
+If <code>normalize="first"</code> then for each configuration of the parents,
+"pa", the probabilities are normalized to sum to one. Thus f(a,b,c)
+becomes a conditional probability table of the form p(a|b,c). If
+<code>normalize="all"</code> then the sum over all entries of f(a,b,c) is
+one. 
+</p>
+<p>
+If <code>smooth</code> is positive then <code>smooth</code> is added to 
+<code>values</code>  before normalization takes place.
+</p>
+<p>
+<code>as.ptable</code> can be used for coercing a an array to a ptable
+object.
+</p>
+
+
+<h3>Value</h3>
+
+<p>
+An object of class <code>ptable</code>.</p>
+
+<h3>Author(s)</h3>
+
+<p>
+Søren Højsgaard, sorenh@agrsci.dk
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+t1 &lt;- ptable(c("gender","answer"),list(c('male','female'),c('yes','no')), values=1:4)
+t1 &lt;- ptable(~gender+answer,list(c('male','female'),c('yes','no')), values=1:4)
+t1 &lt;- ptable(~gender+answer,c(2,2), values=1:4)
+
+t2 &lt;- ptable(c("answer","category"), list(c('yes','no'),c(1,2)), values=1:4+10)
+t3 &lt;- ptable(c("category","foo"), c(2,2), values=1:4+100)
+
+
+
+varNames(t1)
+nLevels(t1)
+valueLabels(t1)
+
+</pre>
+
+
+
+<hr><div align="center">[Package <em>gRbase</em> version 0.8.1 <a href="00Index.html">Index]</a></div>
+
+</body></html>

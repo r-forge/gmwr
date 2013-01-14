@@ -1,0 +1,93 @@
+<html><head><title>Class "gRfit" - fitted graphical models</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="Rchm.css">
+</head>
+<body>
+
+<table width="100%"><tr><td>gRfit(gRbase)</td><td align="right">R Documentation</td></tr></table><object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+<param name="keyword" value="R:   gRfit">
+<param name="keyword" value="R:   getFit">
+<param name="keyword" value="R:   getFit<-">
+<param name="keyword" value="R:   getFit<-.gRfit">
+<param name="keyword" value="R:   getFit.gRfit">
+<param name="keyword" value="R:   print.gRfit">
+<param name="keyword" value="R:   summary.gRfit">
+<param name="keyword" value="R:   fit">
+<param name="keyword" value=" Class 'gRfit' - fitted graphical models">
+</object>
+
+
+<h2>Class 'gRfit' - fitted graphical models</h2>
+
+
+<h3>Description</h3>
+
+<p>
+Objects of class <code>gRfit</code> are created when the function <code>fit</code>
+is applied to a <code><a href="gModel.html">gModel</a></code> object. When adding new types of
+gModel objects, one must also supply the appropritate <code>fit</code>
+function. The <code>gRfit</code> object contains the output of the fit which
+can be accessed by <code>getFit</code>. Separate <code>print</code> and
+<code>summary</code> methods exist for <code>gRfit</code> objects.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+fit(object, ...)
+getFit(x)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>object</code></td>
+<td>
+An object for which a fit method has been defined</td></tr>
+<tr valign="top"><td><code>x</code></td>
+<td>
+an object of class <code>gRfit</code> as created from <code>fit</code>
+applied to a <code><a href="gModel.html">gModel</a></code> object.</td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+Additional arguments</td></tr>
+</table>
+
+<h3>Value</h3>
+
+<p>
+<code>fit</code> creates an object of class <code>gRfit</code>.
+<code>getFit</code> returns the fit information created by the fitting
+algorithm.</p>
+
+<h3>Author(s)</h3>
+
+<p>
+Søren Højsgaard, <a href="mailto:sorenh@agrsci.dk">sorenh@agrsci.dk</a>, <br> Claus Dethlefsen, <a href="mailto:cld@rn.dk">cld@rn.dk</a>
+</p>
+
+
+<h3>See Also</h3>
+
+<p>
+<code><a href="gModel.html">gModel</a></code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+data(reinis)
+reinis &lt;- as.gmData(reinis)
+
+m1 &lt;- hllm(~.^. , reinis) 
+m1 &lt;- fit(m1,engine="loglm")
+</pre>
+
+
+
+<hr><div align="center">[Package <em>gRbase</em> version 1.1.3 <a href="00Index.html">Index</a>]</div>
+
+</body></html>
