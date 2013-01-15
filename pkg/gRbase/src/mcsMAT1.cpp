@@ -51,7 +51,7 @@ n_pas_nbr.setZero();
 
 int ii_mark, max_pas, n_nbr_req, n_nbr_obs, npasnbr, is_perfect=1;
 
-if(dd)Rcout << "INITIALIZATION" << endl;
+if(dd)Rcout << "*INITIALIZATION" << endl;
 
 ii_mark = O[0];
 pas[ii_mark] = 1;
@@ -60,8 +60,8 @@ pas_s = pas.sparseView();
 act_s = act.sparseView();
 
 if(dd)Rcout << " ** ii_mark=" << ii_mark << endl;
-if(ddd)Rcout << "pas  : " << pas.transpose() << endl;
-if(ddd)Rcout << "act   : " << act.transpose() << endl;
+if(ddd)Rcout << "   pas  : " << pas.transpose() << endl;
+if(ddd)Rcout << "   act  : " << act.transpose() << endl;
 
 res[0] = ii_mark;
 
@@ -73,9 +73,9 @@ for (InIter itjj(vec1_s); itjj; ++itjj){
  }
 
 if(nrX>1){
-  if(dd)Rcout << "ITERATION" << endl;
+  if(dd)Rcout << "*ITERATION" << endl;
   while(count<nrX){
-    if(ddd)Rcout << "n_pas_nbr: " << n_pas_nbr.transpose() << endl;
+    if(ddd)Rcout << "   n_pas_nbr: " << n_pas_nbr.transpose() << endl;
     max_pas=-1;
     for (InIter jj_(act_s); jj_; ++jj_){
       if (n_pas_nbr[jj_.index()]>max_pas){
@@ -83,9 +83,10 @@ if(nrX>1){
 	max_pas = n_pas_nbr[jj_.index()];
       }
     }
-    //Rcout << "ii_mark=" << ii_mark << " max_pas=" << max_pas << endl;
-
-    if (n_pas_nbr[O[count]]==max_pas){
+    if(dd)Rcout << " **ii_mark=" << ii_mark << " max_pas=" << max_pas << endl;
+    //Rcout << "count=" << count << endl;
+    if ((n_pas_nbr[O[count]]==max_pas) & (act[O[count]]!=0)){
+      if (ddd)Rcout << "   setting ii_mark to 'follow order'"<< endl;
       ii_mark=O[count];
     }
     if(dd)Rcout << " **ii_mark=" << ii_mark << " max_pas=" << max_pas << endl;
@@ -96,13 +97,12 @@ if(nrX>1){
     pas_s = pas.sparseView();
     act_s  = act.sparseView();
 
-    if(ddd)Rcout << "pas  : " << pas.transpose() << endl;
-    if(ddd)Rcout << "act   : " << act.transpose() << endl;
+    if(ddd)Rcout << "   pas  : " << pas.transpose() << endl;
+    if(ddd)Rcout << "   act  : " << act.transpose() << endl;
 
     pas_nbr_s  = X.col(ii_mark).cwiseProduct(pas_s);
     npasnbr  = pas_nbr_s.sum();
-    if(ddd)Rcout << "pas_nbr_s: " << pas_nbr_s.transpose();
-    if(ddd)Rcout << "npasnbr="<<npasnbr << endl;
+    if(ddd)Rcout << "   npasnbr="<<npasnbr << " pas_nbr_s: " << pas_nbr_s.transpose();
     
     //Rcout << "pas_nbr_s " << pas_nbr_s.transpose() << endl;
     n_nbr_obs = 0; 
@@ -119,11 +119,11 @@ if(nrX>1){
       n_nbr_req = npasnbr*(npasnbr-1)/2;
     n_nbr_obs /= 2;
     
-    if(ddd)Rcout << "n_nbr_req=" << n_nbr_req << " n_nbr_obs=" << n_nbr_obs << endl;
+    if(ddd)Rcout << "   n_nbr_req=" << n_nbr_req << " n_nbr_obs=" << n_nbr_obs << endl;
 
     if (n_nbr_req != n_nbr_obs){
       is_perfect=0;
-      if(dd)Rcout << "not perfect" << endl;
+      if(dd)Rcout << "   not perfect" << endl;
       break;
     }
     vec1_s = X.col(ii_mark);
@@ -136,7 +136,7 @@ if(nrX>1){
   }
  }
 
-if(dd)Rcout << "FINALIZE" << endl;
+if(dd)Rcout << "*FINALIZE" << endl;
 
 if (is_perfect==0)
   res[0]=-1;

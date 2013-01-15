@@ -16,7 +16,8 @@ maxCliqueMAT <- function(amat)
     #em <- rbind(em[,1],em[,2])
   } else {
     #em <- which.arr.ind2(amat)
-    em <- t.default(st_fromto(amat)) ## FIXME: Should be possible to transpose on cpp side
+    #em <- t.default(st_fromto(amat)) ## FIXME: Should be possible to transpose on cpp side
+    em <- t.default(sp_fromto(asdgCMatrix(amat))) ## FIXME: Should be possible to transpose on cpp side
   }
   
   ans2 <- maxClique(nodes=vn, edgeMat=em)

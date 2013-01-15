@@ -3,8 +3,7 @@
 	* mcsMAT now implemented via Rcpp for sparse (dgCMatrix)
 	and dense matrices.
 
-	* ripMAT now implemented via Rcpp for sparse (dgCMatrix)
-	and dense matrices.
+	* ripMAT re-implemented. Much faster now.
 	
 	* Version 1.6-7 uploaded	
 	

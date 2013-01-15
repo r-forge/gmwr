@@ -1,10 +1,6 @@
-* C++ version of mcs for dgCMatrices needed
-
-* C++ version of ripMAT for dgCMatrices needed
-
 * mcsmarked and jTree: not yet implemented for Matrix.
 
 * Perhaphs all .igraph methods should be removed
 
-
+* mpd: Rethink this in terms of matrix methods.
 

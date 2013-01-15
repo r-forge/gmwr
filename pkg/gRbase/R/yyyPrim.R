@@ -1,6 +1,4 @@
 uniquePrim <- function(x){
-  ##.Internal(unique(x, FALSE, FALSE))
-  #x[!duplicated.default(x)]
   unique.default(x)
 }
 
@@ -15,9 +13,6 @@ setdiffPrim <- function (x, y)
 
 intersectPrim <- function (x, y)
 {
-  ##   y <- as.vector(y)
-  ##  .Internal(unique( y[  .Internal(match( as.vector(x), y, 0, NULL)) ], FALSE, FALSE))
-  #intersect(x,y)
   y <- as.vector(y)
   uniquePrim(y[match(as.vector(x), y, 0L)])
 
