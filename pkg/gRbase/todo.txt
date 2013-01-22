@@ -1,0 +1,4 @@
+* mcsmarked and jTree: not yet implemented for Matrix.
+
+* mpd: Rethink this in terms of matrix methods.
+
