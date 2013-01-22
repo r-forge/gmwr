@@ -43,8 +43,11 @@ echo $contents; } ?>
 
 <!-- end of project description -->
 
-Bla bla bla
-<p> No content added yet </p>
+<p> This project hosts development versions of the the graphical
+modelling packages which I have created. </p>
+
+The download area is <a
+href="http://r-forge.r-project.org/R/?group_id=1487"> here </a>
 
 <p> The <strong>project summary page</strong> you can find <a href="http://<?php echo $domain; ?>/projects/<?php echo $group_name; ?>/"><strong>here</strong></a>. </p>
 
