@@ -941,9 +941,9 @@ flush(stderr()); flush(stdout())
 ### ** Examples
 
 
-t1 <- parray(c("gender","answer"),list(c('male','female'),c('yes','no')), values=1:4)
-t1 <- parray(~gender:answer,list(c('male','female'),c('yes','no')), values=1:4)
-t1 <- parray(~gender:answer,c(2,2), values=1:4)
+t1 <- parray(c("gender","answer"), list(c('male','female'),c('yes','no')), values=1:4)
+t1 <- parray(~gender:answer, list(c('male','female'),c('yes','no')), values=1:4)
+t1 <- parray(~gender:answer, c(2,2), values=1:4)
 
 t2 <- parray(c("answer","category"), list(c('yes','no'),c(1,2)), values=1:4+10)
 t3 <- parray(c("category","foo"), c(2,2), values=1:4+100)

@@ -5,11 +5,12 @@
 ####
 ######################################################
 
+
+
 parray <- function(varNames, levels, values=1, normalize="none", smooth=0){
 
+  normalize <- match.arg(normalize, choices=c("none","first","all"))  
   varNames  <- rhsFormula2list(varNames)[[1]]
-  normalize <- match.arg(normalize, choices=c("none","first","all"))
-
   if (smooth>0){
     values <- values + smooth
   }
@@ -40,8 +41,8 @@ as.parray  <- function(values, normalize="none", smooth=0){
   
   normalize <- match.arg(normalize, choices=c("none","first","all"))
 
-  if (!inherits(values, c("array","matrix","table","integer","double","numeric"))){
-    stop("arg must be array, matrix, table, integer, double, numeric\n")
+  if (!inherits(values, c("array","matrix","integer","double","table"))){
+    stop("arg must be array, matrix, table, integer or double\n")
   }
   
   if (smooth>0){
@@ -80,19 +81,17 @@ as.parray  <- function(values, normalize="none", smooth=0){
   return(ans)
 }  
 
-
 data2parray <- function(data, varNames=NULL, normalize="none", smooth=0){
-  ##cls <- match(class(data), c("data.frame","table", "xtabs", "matrix"))[1]
-  cls <- which(inherits(data, c("data.frame","table", "xtabs", "matrix", "parray"), which=TRUE)>0)
+  cls <- match(class(data), c("data.frame","table", "xtabs", "matrix"))[1]
   if (is.na(cls)){
-    stop("'data' must be dataframe, table, xtabs or ma")
+    stop("'data' must be one of  dataframe, table, xtabs, matrix")
   }
-
+  
   .set.varNames <- function(varNames, dataNames){
     if (is.null(varNames)){
       if (is.null(dataNames))
-        stop("'dataNames' is missing...\n")
-      varNames <- dataNames
+        stop("'data' has no variable names")
+      varNames <- dataNames 
     } else {
       if (class(varNames) %in% c("formula", "character")){
         varNames <- rhsf2list(varNames)[[1]]
@@ -107,7 +106,7 @@ data2parray <- function(data, varNames=NULL, normalize="none", smooth=0){
            varNames <- .set.varNames(varNames, dataNames)
            val  <- xtabs(~., data = data[, varNames, drop = FALSE])
          },
-         "2"=, "3"=, "4"=, "5"={
+         "2"=, "3"=, "4"={
            dataNames <- names(dimnames(data))
            varNames <- .set.varNames(varNames, dataNames)           
            val  <- tableMargin(data, varNames)
