@@ -51,7 +51,10 @@ cptable(v, levels=NULL, values = NULL, normalize = TRUE, smooth = 0)
 \seealso{
   \code{\link{andtable}},
   \code{\link{ortable}},
+  \code{\link{extractCPT}},
   \code{\link{compileCPT}},
+  \code{\link{extractPOT}},
+  \code{\link{compilePOT}},
   \code{\link{grain}}  
 }
 \examples{

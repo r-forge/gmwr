@@ -41,8 +41,8 @@ ynm <- c("yes","no","maybe")
 a    <- cptable(~asia, values=c(1,99),levels=yn)
 t.a  <- cptable(~tub+asia, values=c(5,95,1,99,1,999),levels=ynm)
 d.a  <- cptable(~dia+asia, values=c(5,5,1,99,100,999),levels=ynm)
-compileCPT(list(a,t.a,d.a))
-
+cptlist <- compileCPT(list(a,t.a,d.a))
+grain(cptlist)
 
 
 

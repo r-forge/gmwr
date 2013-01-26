@@ -5,14 +5,14 @@
 }
 
 compile.grain <-
-  function(object, method="mcwh", propagate=FALSE, root=NULL, smooth=0,
+  function(object, method="mcwh", propagate=FALSE, root=NULL, 
            control=object$control, details=0,...) {
   method <- match.arg(tolower(method), c("mcwh","r"))
   NextMethod("compile") 
 }
 
 compile.CPTgrain <- 
-  function(object, method="mcwh", propagate=FALSE, root=NULL, smooth=0,
+  function(object, method="mcwh", propagate=FALSE, root=NULL, 
            control=object$control, details=0,...){
     ## object has slots:
     ## [1] "universe"      "data"          "dag"           "cptlist"       "isInitialized"
@@ -81,7 +81,7 @@ compile.CPTgrain <-
 ## the network in Hugin format...
 
 compile.POTgrain <-
-  function(object, method="mcwh", propagate=FALSE, root=NULL, smooth=0,
+  function(object, method="mcwh", propagate=FALSE, root=NULL, 
            control=object$control, details=0,...) {
 
     ## object has slots

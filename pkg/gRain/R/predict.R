@@ -26,7 +26,7 @@ predict.grain <- function(object, response, predictors=setdiff(names(newdata), r
     #print(p.e)
 
     if (p.e<1e-32){
-      cat(sprintf("Finding for row %i has probability 0 in then model. Exiting...\n", i))
+      cat(sprintf("The finding for row %i has probability 0 in then model. Consider using the 'smooth' argument when building the network. Exiting...\n", i))
       return(NULL)
     }
     

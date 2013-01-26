@@ -1,6 +1,6 @@
 extractCPT <- function(x, graph, smooth=0){
-  if (!inherits(x, c("data.frame","table")))
-    stop("'x' must be a dataframe or a table")      
+  if (!inherits(x, c("data.frame","table", "xtabs")))
+    stop("'x' must be one of dataframe, table, xtabs")      
   if (!inherits(graph, "graphNEL"))
     stop("'graph' must be a graphNEL object")
   if (!is.DAG(graph))
@@ -9,7 +9,7 @@ extractCPT <- function(x, graph, smooth=0){
   V   <- nodes(graph) 
   vpa <- vpar(graph)[V]
 
-  if (class(x)=="data.frame"){
+  if (class(x)[1]=="data.frame"){
     ans <- lapply(vpa, function(ss){xtabs(~., data=x[, ss, drop=FALSE])})
   } else {
     ans <- lapply(vpa, function(ss){tableMargin(x, ss)})    
