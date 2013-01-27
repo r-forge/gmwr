@@ -49,6 +49,12 @@ modelling packages which I have created. </p>
 The download area is <a
 href="http://r-forge.r-project.org/R/?group_id=1487"> here </a>
 
+There are various issues with compiling the packages on R-Forge for
+the moment. For development versions of the packages, you may also
+want to have a look
+<a href="http://people.math.aau.dk/~sorenh/software/gR/index.html">
+here</a>.
+
 <p> The <strong>project summary page</strong> you can find <a href="http://<?php echo $domain; ?>/projects/<?php echo $group_name; ?>/"><strong>here</strong></a>. </p>
 
 </body>
