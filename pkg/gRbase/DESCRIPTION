@@ -1,5 +1,5 @@
 Package: gRbase
-Version: 1.6-6.4
+Version: 1.6-7
 Title: A package for graphical modelling in R
 Author: Søren Højsgaard <sorenh@math.aau.dk> with contributions from Claus Dethlefsen <cld@rn.dk> and Clive Bowsher <C.Bowsher@statslab.cam.ac.uk>
 Maintainer: Søren Højsgaard <sorenh@math.aau.dk>
@@ -16,9 +16,9 @@ Description: The gRbase package provides certain general constructs
 	of a standard matrix or a sparse matrix). Some graph
 	algorithms are: 
 	(i) maximum cardinality search (for marked and unmarked graphs).
-	(ii) moralize
-	(iii) triangulate
-	(iv) junctionTree
+	(ii) moralize.
+	(iii) triangulate.
+	(iv) junctionTree.
  .
  gRbase facilities for array operations, 
  .

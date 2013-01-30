@@ -161,10 +161,11 @@ while (n_active>0){
  }
 
 
-//Rcout << eli_order_vec << "\n";
-// For sparse matrices:
 X.makeCompressed();
-return(wrap(X));
+//return(wrap(X));
 
-
+S4    Xin(XX_);
+S4    Xout(wrap(X));
+Xout.slot("Dimnames") = clone(List(Xin.slot("Dimnames")));
+return(Xout);
 }

@@ -296,6 +296,34 @@ nonEdgeListMAT(gm)
 
 
 cleanEx()
+nameEx("GraphAlgo-getClique")
+### * GraphAlgo-getClique
+
+flush(stderr()); flush(stdout())
+
+### Name: getCliques
+### Title: Get cliques of an undirected graph
+### Aliases: getCliques getCliques.graphNEL getCliques.default maxCliqueMAT
+### Keywords: utilities
+
+### ** Examples
+
+## graphNEL
+uG1 <- ug(~a:b+b:c+c:d+d:e+e:f+f:a)
+getCliques(uG1)
+
+## adjacency matrix
+uG2 <- ug(~a:b+b:c+c:d+d:e+e:f+f:a, result="matrix")
+getCliques(uG2)
+
+## adjacency matrix (sparse)
+uG3 <- ug(~a:b+b:c+c:d+d:e+e:f+f:a, result="Matrix")
+getCliques(uG3)
+
+
+
+
+cleanEx()
 nameEx("GraphAlgo-glist2adjMAT")
 ### * GraphAlgo-glist2adjMAT
 
@@ -508,7 +536,7 @@ flush(stderr()); flush(stdout())
 ### Title: Simple operations on undirected and directed acyclic graphs.
 ### Aliases: ancestors ancestralGraph ancestralSet children closure
 ###   is.complete is.decomposition is.simplicial parents simplicialNodes
-###   as.adjMAT graphNEL2ftM maxCliqueMAT
+###   as.adjMAT graphNEL2ftM
 ### Keywords: utilities
 
 ### ** Examples

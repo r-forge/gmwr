@@ -11,7 +11,7 @@ triangulateMAT_spCpp <- function(XX_, LL_=rep(2,ncol(XX_))){
   res <- .Call("C_triangulateMAT_sp", XX_, log(LL_), 0, 0
                ,package="gRbase"
                )
-  dimnames(res) <- dimnames(XX_)
+  ##dimnames(res) <- dimnames(XX_)
   res
 }
 

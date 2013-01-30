@@ -1,4 +1,7 @@
 * mcsmarked and jTree: not yet implemented for Matrix.
 
-* mpd: Rethink this in terms of matrix methods.
+* mpd: Rewrite in terms of matrix methods.
 
+* ripMAT: Need C-implementation
+
+* is.adjMAT: Need C-implementation

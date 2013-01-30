@@ -36,8 +36,7 @@ querygraph <-function(object, op, set=NULL, set2=NULL, set3=NULL){
       "simplicialNodes",
       "vpar")
   
-  op=match.arg(op, choices=c(graph.RBGL, gRbase))
-
+  op <- match.arg(op, choices=c(graph.RBGL, gRbase))
   object <- coerceGraph(object, "graphNEL")
   
   switch(op,
@@ -95,8 +94,7 @@ ancestors <- function(set, object){
   setdiff(An, setorig)
 }
 
-## adjmat based
-## Must be very slow !!!
+## adjmat based -- Must be very slow !!!
 ancestralSet <- function(set, object){
 
   amat  <- as.adjMAT(object)

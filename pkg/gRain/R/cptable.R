@@ -1,16 +1,8 @@
-cptable <- function(v, levels=NULL, values=NULL, normalize=TRUE,  smooth=0 ){  
-  vpa  <- c(.formula2char(v))
+cptable <- function(vpar, levels=NULL, values=NULL, normalize=TRUE,  smooth=0 ){  
+  vpa  <- c(.formula2char(vpar))
   ans  <- list(vpa=vpa, values=values, normalize=normalize, smooth=smooth, levels=levels)
   class(ans) <- "cptable"
   ans
-}
-
-print.cptable <- function(x,...){
-  cat(sprintf("{v,pa(v)}      : %s\n", toString(x$vpa)))
-  cat(sprintf("levels of v    : %s\n", toString(x$levels)))
-  cat(sprintf("values         : %s\n", toString(x$values)))
-  cat(sprintf("normalize=%s, smooth=%f\n", x$normalize, x$smooth))
-  return(invisible(x))
 }
 
 ortable <- function(v, pa1=c(TRUE,FALSE), pa2=c(TRUE,FALSE), levels ){
@@ -29,8 +21,6 @@ ortable <- function(v, pa1=c(TRUE,FALSE), pa2=c(TRUE,FALSE), levels ){
   return(ans)
 }
 
-
-
 andtable <- function(v, pa1=c(TRUE,FALSE), pa2=c(TRUE,FALSE), levels ){
 
   vpa <- c(.formula2char(v))
@@ -45,6 +35,16 @@ andtable <- function(v, pa1=c(TRUE,FALSE), pa2=c(TRUE,FALSE), levels ){
   ans       <- list(vpa=vpa, values=values, normalize=FALSE, smooth=0, levels=levels)
   class(ans) <- "cptable"
   return(ans)
+}
+
+
+
+print.cptable <- function(x,...){
+  cat(sprintf("{v,pa(v)}      : %s\n", toString(x$vpa)))
+  cat(sprintf("levels of v    : %s\n", toString(x$levels)))
+  cat(sprintf("values         : %s\n", toString(x$values)))
+  cat(sprintf("normalize=%s, smooth=%f\n", x$normalize, x$smooth))
+  return(invisible(x))
 }
 
 
